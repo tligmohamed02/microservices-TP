@@ -7,14 +7,14 @@
     image_name: "my-country-service"
     image_tag: "v1"
     dockerfile_path: "./"
-    dockerhub_username: "mohamed.tligkraini@ensi-uma.tn"
-    dockerhub_password: "mohamed02"
+    dockerhub_registry_username: "mohamed.tligkraini@ensi-uma.tn"
+    dockerhub_registry_password: "mohamed02"
 
   tasks:
     - name: Log in to Docker Hub
       community.general.docker_login:
-        username: "{{ dockerhub_username }}"
-        password: "{{ dockerhub_password }}"  # Use environment variable for password
+        username: "{{ dockerhub_registry_username }}"
+        password: "{{ dockerhub_registry_password }}"  # Use environment variable for password
         reauthorize: yes  # Re-authenticate even if credentials exist
 
     - name: Build Docker image
