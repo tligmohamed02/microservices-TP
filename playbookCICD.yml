@@ -13,9 +13,8 @@
   tasks:
     - name: Log in to Docker Hub
       community.general.docker_login:
-        username: "{{ dockerhub_registry_username }}"
-        password: "{{ dockerhub_registry_password }}"  # Use environment variable for password
-        reauthorize: yes  # Re-authenticate even if credentials exist
+        username: "{{ lookup('env', 'DOCKERHUB_USERNAME') }}"
+        password: "{{ lookup('env', 'DOCKERHUB_PASSWORD') }}"
 
     - name: Build Docker image
       docker_image:
