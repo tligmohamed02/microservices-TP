@@ -1,6 +1,6 @@
 ---
 - name: Build and Deploy Docker Image to Kubernetes
-  hosts: localhost # Or your build/deployment server
+  hosts: localhost
   connection: local
   vars_files:
     - vault.yml
