@@ -8,7 +8,7 @@
     image_tag: "v1"
     dockerfile_path: "./"
     dockerhub_username: "mohamed.tligkraini@ensi-uma.tn"
-    dockerhub_password: "J2VfAf[cz@^Y9eu"
+    dockerhub_password: "mohamed02"
 
   tasks:
     - name: Log in to Docker Hub
