@@ -2,13 +2,14 @@
 - name: Build and Deploy Docker Image to Kubernetes
   hosts: localhost
   connection: local
-  vars_files:
-    - vault.yml
 
   vars:
     image_name: my-country-service
     image_tag: v1
     dockerfile_path: './'
+    dockerhub_username: mohamed.tligkraini@ensi-uma.tn
+    dockerhub_password: J2VfAf[cz@^Y9eu
+
   tasks:
     - name: Log in to Docker Hub
       community.general.docker_login:
