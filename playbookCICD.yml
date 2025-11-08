@@ -7,7 +7,7 @@
     image_name: "my-country-service"
     image_tag: "v1"
     dockerfile_path: "./"
-    dockerhub_registry_username: "mohamed.tligkraini@ensi-uma.tn"
+    dockerhub_registry_username: "mohamed357"
     dockerhub_registry_password: "mohamed02"
 
   tasks:
