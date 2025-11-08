@@ -14,23 +14,17 @@
     - name: Log in to Docker Hub
       community.general.docker_login:
         username: "{{ dockerhub_registry_username }}"
-        password: "{{ dockerhub_registry_password }}"  # Use environment variable for password
+        password: "{{ dockerhub_registry_password }}"
 
-    - name: Build Docker image
+    - name: Build and push the Docker image to Docker Hub
       docker_image:
         build:
           path: "{{ dockerfile_path }}"
         name: "{{ dockerhub_registry_username }}/{{ image_name }}"
         tag: "{{ image_tag }}"
         source: build
-        state: present
-
-    - name: Push the Docker image to Docker Hub
-      docker_image:
-        name: "{{ dockerhub_registry_username }}/{{ image_name }}"
-        tag: "{{ image_tag }}"
         push: yes
-        source: local
+        state: present
 
     - name: Pull Docker image (optional, for verification or on target nodes)
       docker_image:
@@ -43,7 +37,7 @@
         state: present
         namespace: jenkins
         src: "deployment.yaml"
-        kubeconfig: "config"  # Path to your kubeconfig file
+        kubeconfig: "config"
 
     - name: Apply Kubernetes Service
       kubernetes.core.k8s:
