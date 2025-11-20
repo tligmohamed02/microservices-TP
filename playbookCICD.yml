@@ -21,7 +21,7 @@
 
     - name: Pull Docker image (optional, for verification or on target nodes)
       docker_image:
-        name: "{{ dockerhub_registry_username }}/{{ image_name }}"
+        name: "{{ dockerhub_registry_username }}/my-country-service"
         tag: "{{ image_tag }}"
         source: pull
 
