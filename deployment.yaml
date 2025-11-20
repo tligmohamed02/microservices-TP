@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-country-service
+  namespace: jenkins
 spec:
   replicas: 3
   selector:
@@ -17,3 +18,5 @@ spec:
           image: my-country-service:3
           ports:
             - containerPort: 8087
+      imagePullSecrets:
+        - name: regcred
