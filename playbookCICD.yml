@@ -3,13 +3,6 @@
   hosts: localhost
   connection: local
 
-  vars:
-    image_name: "my-country-service"
-    image_tag: "v2"
-    dockerfile_path: "./"
-    dockerhub_registry_username: "mohamed357"
-    dockerhub_registry_password: "mohamed02"
-
   tasks:
     - name: Log in to Docker Hub
       community.general.docker_login:
@@ -19,8 +12,8 @@
     - name: Build and push the Docker image to Docker Hub
       docker_image:
         build:
-          path: "{{ dockerfile_path }}"
-        name: "{{ dockerhub_registry_username }}/{{ image_name }}"
+          path: "./"
+        name: "{{ dockerhub_registry_username }}/my-country-service"
         tag: "{{ image_tag }}"
         source: build
         push: yes
